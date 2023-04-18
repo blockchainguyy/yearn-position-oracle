@@ -22,8 +22,7 @@ To run the tests run the bash script
 ./setup.sh
 ```
 
-If you want to run tests again
-
+To explicitly run tests
 ```properties
 forge tests -vvv
 ```
