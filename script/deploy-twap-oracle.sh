@@ -1,0 +1,9 @@
+export MAINNET_RPC_URL=<MAIINET_RPC_URL_WITH_API_KEY>
+export ETHERSCAN_API_KEY=<ETHERSCAN_API_KEY>
+export PRIVATE_KEY=<PRIVATE_KEY>
+export CURVE_POOL=<CURVE_POOL_ADDRESS>
+export YEARN_VAULT=<YEARN_VAULT_ADDRESS>
+export POOL_TOKEN_1=<USDT_ADDRESS>
+export POOL_TOKEN_2=<WBTC_ADDRESS>
+export POOL_TOKEN_3=<WETH_ADDRESS>
+forge script script/YearnPositionTWAPOracle.s.sol --rpc-url $MAIINET_RPC_URL  --broadcast --private-key $PRIVATE_KEY  --verify -vvvv --etherscan-api-key $ETHERSCAN_API_KEY

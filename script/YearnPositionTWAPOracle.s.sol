@@ -12,32 +12,24 @@ contract YearnPositionTWAScript is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
 
-        string memory deploymentNetwork = vm.envString(
-            "DEPLOYMENT_NETWORK"
-        );
-
-        if (bytes(deploymentNetwork).length == 0) {
-            revert("Deployment network is not set in .env file");
-        }
-
         address curvePoolAddress = vm.envAddress(
-            string.concat("CURVE_POOL_", deploymentNetwork)
+            string.concat("CURVE_POOL", deploymentNetwork)
         );
 
         address yearnVaultAddress = vm.envAddress(
-            string.concat("YEARN_VAULT_", deploymentNetwork)
+            string.concat("YEARN_VAULT", deploymentNetwork)
         );
 
         address poolTokenAddress1 = vm.envAddress(
-            string.concat("POOL_TOKEN_1_", deploymentNetwork)
+            string.concat("POOL_TOKEN_1", deploymentNetwork)
         );
 
         address poolTokenAddress2 = vm.envAddress(
-            string.concat("POOL_TOKEN_2_", deploymentNetwork)
+            string.concat("POOL_TOKEN_2", deploymentNetwork)
         );
 
         address poolTokenAddress3 = vm.envAddress(
-            string.concat("POOL_TOKEN_3_", deploymentNetwork)
+            string.concat("POOL_TOKEN_3", deploymentNetwork)
         );
 
         address[3] memory coinPriceFeedAddresses = [
