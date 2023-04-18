@@ -2,7 +2,7 @@
 
 ## Installation
 
-1. CLone the Repository
+1. Clone the Repository
 
 ```properties
 git clone https://github.com/blockchainguyy/yearn-position-oracle.git
