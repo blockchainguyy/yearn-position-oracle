@@ -173,7 +173,7 @@ contract YearnPositionTWAPOracle {
         uint256 middle;
         OracleData memory middleData;
 
-        while (minIndex <= maxIndex && minIndex !=0) {
+        while (minIndex < maxIndex) {
             middle = minIndex + (maxIndex - minIndex) / 2;
             middleData = observations[middle];
             if (middleData.timestamp == targetTimeStamp) {
