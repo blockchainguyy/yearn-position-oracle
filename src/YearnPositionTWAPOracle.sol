@@ -6,6 +6,7 @@ import "chainlink/v0.8/interfaces/AggregatorV3Interface.sol";
 import { IERC20Metadata } from "openzeppelin-contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import { ICurvePool } from "src/interfaces/ICurvePool.sol";
 import { IYearnVault } from "src/interfaces/IYearnVault.sol";
+import "forge-std/console.sol";
 
 /**
  * @title YearnPositionTWAPOracle
@@ -173,7 +174,7 @@ contract YearnPositionTWAPOracle {
         uint256 middle;
         OracleData memory middleData;
 
-        while (minIndex < maxIndex) {
+        while (minIndex <= maxIndex) {
             middle = minIndex + (maxIndex - minIndex) / 2;
             middleData = observations[middle];
             if (middleData.timestamp == targetTimeStamp) {
@@ -181,9 +182,12 @@ contract YearnPositionTWAPOracle {
             } else if (middleData.timestamp < targetTimeStamp) {
                 minIndex = middle + 1;
             } else {
+                if(middle == 0) {
+                    return 0;
+                }
                 maxIndex = middle - 1;
             }
-       }
+        }
         return minIndex;
     }
 }
